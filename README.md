@@ -1,8 +1,3 @@
-Important
-=========
-
-I'm not maintaining this plugin. I believe there is an active fork here: https://github.com/progrium/dokku/wiki/Plugins
-
 dokku-user-env-compile
 =====================
 
