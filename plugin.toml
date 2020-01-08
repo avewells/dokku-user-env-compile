@@ -1,0 +1,4 @@
+[plugin]
+description = "dokku user env compile plugin"
+version = "0.9.0"
+[plugin.config]
