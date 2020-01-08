@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -eo pipefail; [[ $DOKKU_TRACE ]] && set -x
+APP="$1"; IMAGE="dokku/$APP"
+SOURCE_ENV_PATH="$HOME/$APP/ENV"
+echo "---- SOURCE ENV PATH ----"
+echo "$SOURCE_ENV_PATH"
+echo "-------------------------"
+
+if [[ -f "$SOURCE_ENV_PATH" ]]; then
+  echo "-----> Installing ENV in build environment ..."
+  id=$(cat "$SOURCE_ENV_PATH" | docker run -i -a stdin $IMAGE /bin/bash -c "cat >> /app/.env")
+  test $(docker wait $id) -eq 0
+  docker commit $id $IMAGE > /dev/null
+fi
