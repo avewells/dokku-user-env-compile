@@ -6,7 +6,5 @@ dokku-user-env-compile is to dokku what [user-env-compile](https://devcenter.her
 ## Installation
 
 ```sh
-cd /var/lib/dokku/plugins
-git clone https://github.com/musicglue/dokku-user-env-compile.git user-env-compile
-dokku plugins-install
+sudo dokku plugin:install https://github.com/avewells/dokku-user-env-compile.git
 ```
